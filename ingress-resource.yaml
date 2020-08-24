@@ -1,0 +1,39 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: assignment-ingress-resource
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: assignment.com
+    http:
+      paths:
+      - path: /add
+        backend:
+          serviceName: assignment-service
+          servicePort: 3000
+      - path: /division
+        backend:
+          serviceName: assignment-service
+          servicePort: 3000
+      - path: /substract
+        backend:
+          serviceName: assignment-service
+          servicePort: 3000
+     - path: /random
+        backend:
+          serviceName: assignment-service
+          servicePort: 3000
+     - path: /metrics
+        backend:
+          serviceName: assignment-service
+          servicePort: 3000
+     - path: /readiness
+        backend:
+          serviceName: assignment-service
+          servicePort: 3000
+     - path: /liveliness
+        backend:
+          serviceName: assignment-service
+          servicePort: 3000
